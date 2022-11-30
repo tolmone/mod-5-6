@@ -102,4 +102,32 @@ router.put(
     }
 );
 
+router.put(
+    '/preferences',
+    function(req, res) {
+
+        UserModel
+        .findOneAndUpdate(
+            {
+                "email": req.body.email
+            },
+            {
+                subscription: true
+            }
+        )
+        .then(
+            function(dbDocument) {
+                res.json(dbDocument)
+            }
+        )
+        .catch(
+            function(error) {
+                console.log('/users/subscription error', error);
+                res.send('An error occured');
+            }
+        )
+
+    }
+);
+
 module.exports = router;
