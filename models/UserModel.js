@@ -5,11 +5,11 @@ const UserSchema = new mongoose.Schema(
     { 
         firstName:{
             type: String,
-            required: true
+            required: false
         },
         lastName:{
             type : String,
-            required: true
+            required: false
         },
         email:{
             type: String,
@@ -31,6 +31,10 @@ const UserSchema = new mongoose.Schema(
             type: Date,
             required:false,
             default: Date.now
+        },
+        subscription:{
+            type: Boolean,
+            required: false
         }
     }
 )
